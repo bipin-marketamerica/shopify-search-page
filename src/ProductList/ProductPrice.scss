@@ -1,0 +1,22 @@
+@use "../../styles/abstracts/mixins";
+.product-price-container {
+  line-height: 20px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  .product-price {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .product-sale-price,
+  .mfe-red-product-price {
+    color: #b40800;
+  }
+
+  .product-price-strike-through {
+    font-weight: 400;
+    font-size: 14px;
+    text-decoration: line-through;
+  }
+}

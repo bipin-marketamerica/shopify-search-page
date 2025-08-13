@@ -1,0 +1,40 @@
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+span.swiper-button-disabled {
+  opacity: 0;
+}
+
+.nav-button-prev-circle,
+.nav-button-next-circle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity, width 200ms ease-in-out;
+  line-height: 14px;
+  border: 1px solid #000;
+  border-radius: 50%;
+  height: 36px;
+  width: 36px;
+  min-width: 36px;
+  background-color: rgba(255, 255, 255, 0.8);
+  .arrow {
+    position: relative;
+    left: 10px;
+  }
+}
+.nav-button-prev-circle {
+  z-index: 2;
+  left: 0;
+  .arrow {
+    top: 7px;
+  }
+}
+.nav-button-next-circle {
+  z-index: 2;
+  right: 0;
+  .arrow {
+    top: 10px;
+  }
+}

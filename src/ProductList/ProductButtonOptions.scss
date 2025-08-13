@@ -1,0 +1,28 @@
+@use "../../styles/abstracts/mixins" as mixin;
+.mfe-button-loading {
+  animation: pulse 2s infinite;
+}
+.mfe-button-success {
+  display: none;
+}
+.mfe-button-success-show {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.mfe-button-success-hide {
+  visibility: hidden;
+}
+.product-action-button-container {
+  @include mixin.flex(row, space-between);
+  margin: 5px 0 10px 0px;
+  column-gap: 5px;
+  flex-wrap: nowrap;
+}
+@media only screen and (max-width: 545px) {
+  .product-action-button-container {
+    row-gap: 5px;
+    flex-direction: column;
+  }
+}

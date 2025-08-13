@@ -1,0 +1,40 @@
+a.mfe-button,
+button.mfe-button {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Roboto";
+  font-weight: 500;
+  min-height: 40px;
+  padding: var(--mfe-product-button-padding);
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: all 0.2s ease 0s;
+  transition: all 0.2s ease 0s;
+  vertical-align: middle;
+  font-size: 16px;
+  line-height: 28px;
+  overflow: hidden;
+  color: white;
+  background-color: var(--mfe-theme-color);
+  border-radius: 40px;
+  border: none;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  flex-shrink: 1;
+  &:hover {
+    background-color: var(--mfe-theme-dark-color);
+    color: white;
+  }
+
+  &.mfe-mobile-global {
+    padding: 8px 6px;
+  }
+}
+
+button.mfe-button.mfe-button-outline {
+  color: var(--mfe-theme-color);
+  background-color: transparent;
+  border: 1px solid var(--mfe-theme-color);
+}

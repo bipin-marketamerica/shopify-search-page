@@ -15,6 +15,10 @@ module.exports = {
     filename: "bundle.js",
   },
   resolve: {
+    // alias: {
+    //   react: require.resolve("react"),
+    //   "react-dom": require.resolve("react-dom"),
+    // },
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
   devServer: {
@@ -52,6 +56,10 @@ module.exports = {
       },
     ],
   },
+  // externals: {
+  //   react: "react",
+  //   "react-dom": "react-dom",
+  // },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
@@ -66,11 +74,11 @@ module.exports = {
         // define other remotes here
       },
       shared: {
-        react: { singleton: true, eager: true, requiredVersion: "^18.0.0" },
+        react: { singleton: true, eager: true, requiredVersion: "19.1.1" },
         "react-dom": {
           singleton: true,
           eager: true,
-          requiredVersion: "^18.0.0",
+          requiredVersion: "19.1.1",
         },
       },
     }),

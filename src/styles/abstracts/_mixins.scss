@@ -1,0 +1,22 @@
+@use "./variables" as *;
+@mixin focused($color: $primary-color) {
+  box-shadow: 0 0 0 2px $white;
+  outline-offset: 2px;
+  outline: 2px dashed $color;
+}
+
+@mixin card($bg: $white, $br: 0) {
+  background-color: $bg;
+  border-radius: $br;
+  box-shadow: none;
+  transition: 0.2s ease-in-out;
+  width: 100%;
+}
+
+@mixin flex($fd: row, $jc: unset, $ai: unset, $fw: wrap) {
+  display: flex;
+  flex-direction: $fd;
+  justify-content: $jc;
+  flex-wrap: $fw;
+  align-items: $ai;
+}

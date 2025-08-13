@@ -1,0 +1,56 @@
+// src/styles/fonts.scss
+@use "../abstracts/variables" as v;
+@import "~@fontsource/roboto/300.css";
+@import "~@fontsource/roboto/400.css";
+@import "~@fontsource/roboto/500.css";
+@import "~@fontsource/roboto/700.css";
+
+html {
+  text-size-adjust: 100%;
+  tap-highlight-color: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+  font-size: 100%;
+  outline: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  color: #202340;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  height: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+  padding: 0;
+  scrollbar-width: none;
+}
+
+*:focus,
+*:focus-visible {
+  box-shadow: 0 0 0 2px #fff;
+  outline-offset: 2px;
+  outline: 2px dashed #202340;
+}
+
+* {
+  box-sizing: border-box;
+}
+.reward,
+.reward__upto {
+  display: inline-block;
+  color: v.$primary-color;
+  font-size: 0.75rem;
+  margin: 0;
+  font-weight: 300;
+  .reward-cashback-icon {
+    display: inline-block;
+    float: none;
+    height: 13px;
+    margin: -2px 2px 0;
+    vertical-align: middle;
+    width: 13px;
+  }
+}

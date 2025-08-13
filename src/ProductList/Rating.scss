@@ -1,0 +1,104 @@
+@use "../../styles/abstracts/mixins" as mixin;
+@use "../../styles/abstracts/variables" as v;
+
+.review-container {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  margin-bottom: 2px;
+  .rating-list-container {
+    @include mixin.flex(row, unset, center);
+    .star-rating-container {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      .star-rating-top {
+        display: block;
+        -webkit-filter: invert(92%) sepia(22%) saturate(3032%)
+          hue-rotate(335deg) brightness(96%) contrast(89%);
+        filter: invert(92%) sepia(22%) saturate(3032%) hue-rotate(335deg)
+          brightness(96%) contrast(89%);
+        height: 16px;
+        left: 0;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+      }
+      .star-rating-bottom {
+        display: block;
+        -webkit-filter: invert(93%) sepia(8%) saturate(129%) hue-rotate(201deg)
+          brightness(84%) contrast(89%);
+        filter: invert(93%) sepia(8%) saturate(129%) hue-rotate(201deg)
+          brightness(84%) contrast(89%);
+        padding: 0;
+      }
+      .star-rating-box {
+        height: 16px;
+        width: 84px;
+      }
+    }
+    span.review-count {
+      color: v.$primary-color-dark;
+      font-size: 0.6875rem;
+      line-height: 20px;
+      margin: 2px 4px 0 2px;
+      text-align: right;
+    }
+  }
+
+  .review-detail-overlay-container {
+    position: absolute;
+    padding-top: 35px;
+    width: 150px;
+    top: -15px;
+    left: 0;
+    background-color: transparent;
+    display: none;
+    z-index: 501;
+    .review-detail-container {
+      padding: 5px 5px 5px 15px;
+      background: #fff;
+      border: 1px solid v.$primary-color;
+      border-radius: 2px;
+      border-top: 5px solid v.$primary-color;
+      color: v.$primary-color;
+      font-size: 0.6875rem;
+      font-weight: 400;
+      margin: 5px 0 0;
+      width: 150px;
+      z-index: 501;
+      text-decoration: underline;
+
+      p {
+        color: v.$primary-color;
+        font-size: 0.75rem;
+        font-weight: 400;
+      }
+
+      &::before {
+        border: solid;
+        border-color: v.$primary-color rgba(0, 0, 0, 0);
+        border-width: 0 6px 6px;
+        content: "";
+        left: 30px;
+        position: absolute;
+        top: 35px;
+        z-index: 2000;
+      }
+
+      &:hover * {
+        color: v.$highlight-color;
+      }
+    }
+    .star-rating-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin: 5px 10px 5px 0;
+    }
+  }
+  .review-detail-overlay-container-show {
+    display: block;
+  }
+}
