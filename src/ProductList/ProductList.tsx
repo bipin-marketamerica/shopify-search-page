@@ -46,7 +46,32 @@ const cartQuery = gql`
         edges {
           node {
             id
+
+            quantity
+            merchandise {
+              ... on ProductVariant {
+                id
+                title
+
+                price {
+                  amount
+                }
+                image {
+                  url
+                }
+                product {
+                  id
+                  title
+                }
+              }
+            }
           }
+        }
+      }
+      cost {
+        subtotalAmount {
+          amount
+          currencyCode
         }
       }
       checkoutUrl
@@ -54,7 +79,9 @@ const cartQuery = gql`
   }
 `;
 
-interface ProductListProps {}
+interface ProductListProps {
+  gotoCart: (id: string) => void;
+}
 
 export interface Product {
   node: {
@@ -122,7 +149,7 @@ mutation cartLinesAdd($cartId: ID!, $lines: [CartLineInput!]!) {
 }
 `;
 
-const ProductList: React.FC<ProductListProps> = () => {
+const ProductList: React.FC<ProductListProps> = ({ gotoCart }) => {
   const [products, setProducts] = useState([]);
   const [cartId, setCartId] = useState<string>("");
   const [cart, setCart] = useState<any>([]);
@@ -246,6 +273,22 @@ const ProductList: React.FC<ProductListProps> = () => {
           />
         ))}
       </div>
+
+      {cartId && (
+        <div className="fixed bottom-4 right-4 bg-green-600 text-white p-4 rounded-lg shadow-lg">
+          <p className="font-bold">{cart.length} items in cart</p>
+
+          {cart.length > 0 && (
+            <button
+              onClick={() => gotoCart(cartId)}
+              disabled={loadingCheckout}
+              className="mt-2 bg-green-800 hover:bg-green-900 text-white px-4 py-2 rounded-lg transition duration-300 disabled:opacity-50"
+            >
+              {"View Cart"}
+            </button>
+          )}
+        </div>
+      )}
     </div>
   );
 };
