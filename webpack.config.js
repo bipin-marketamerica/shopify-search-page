@@ -7,7 +7,7 @@ module.exports = {
   mode: "development",
   devServer: {
     static: path.join(__dirname, "dist"),
-    port: 3000,
+    port: 3002,
     hot: true,
   },
   output: {
@@ -31,14 +31,27 @@ module.exports = {
     static: {
       directory: path.join(__dirname, "dist"),
     },
-    port: 3000,
+    port: 3002,
     hot: true,
   },
   module: {
     rules: [
       {
         test: /\.(css|s[ac]ss)$/i,
-        use: ["style-loader", "css-loader", "postcss-loader"],
+        use: [
+          "style-loader",
+          "css-loader",
+          "postcss-loader",
+          {
+            loader: "sass-loader",
+            options: {
+              api: "modern-compiler",
+              sassOptions: {
+                silenceDeprications: ["legacy-js-api"],
+              },
+            },
+          },
+        ],
       },
       {
         test: /\.(js|jsx)$/,
@@ -74,11 +87,10 @@ module.exports = {
         // define other remotes here
       },
       shared: {
-        react: { singleton: true, eager: true, requiredVersion: "19.1.1" },
+        react: { singleton: true, requiredVersion: false },
         "react-dom": {
           singleton: true,
-          eager: true,
-          requiredVersion: "19.1.1",
+          requiredVersion: false,
         },
       },
     }),

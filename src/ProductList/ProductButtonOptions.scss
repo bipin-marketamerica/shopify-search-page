@@ -1,4 +1,4 @@
-@use "../../styles/abstracts/mixins" as mixin;
+@use "../styles/abstracts/mixins" as mixin;
 .mfe-button-loading {
   animation: pulse 2s infinite;
 }
